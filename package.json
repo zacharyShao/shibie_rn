@@ -18,10 +18,15 @@
     "preset": "react-native"
   },
   "dependencies": {
-    "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "axios": "^0.18.0",
+    "eslint": "^4.19.1",
+    "promise": "8.0.1",
+    "querystring": "^0.2.0",
+    "react": "^16.3.1",
+    "react-native": "~0.55.2",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
-    "redux-logger": "^2.6.1"
+    "redux-logger": "^2.6.1",
+    "redux-saga": "^0.16.0"
   }
 }
