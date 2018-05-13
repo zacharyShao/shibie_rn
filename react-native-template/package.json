@@ -1,0 +1,42 @@
+{
+    "name": "react_native_template",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "npm start --reset-cache",
+        "dev:all": "npm run dev:ios && npm run dev:android",
+        "dev:ios": "react-native run-ios",
+        "dev:android": "react-native run-android",
+        "start": "node node_modules/react-native/local-cli/cli.js start",
+        "build:ios": "react-native bundle --entry-file index.ios.js --platform ios --bundle-output ./ios/react.bundle",
+        "build:android": "cd android && ./gradlew assembleRelease",
+        "release:android": "cd android && ./gradlew installRelease",
+        "postinstall": "rndebugger-open",
+        "eslint": "eslint --ext .js src",
+        "test": "jest"
+    },
+    "dependencies": {
+        "antd-mobile": "2.1.8",
+        "axios": "0.18.0",
+        "react": "16.3.1",
+        "react-native": "0.55.4",
+        "react-redux": "^5.0.7",
+        "redux": "^4.0.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "8.2.3",
+        "babel-jest": "22.4.3",
+        "babel-plugin-import": "1.7.0",
+        "babel-preset-react-native": "4.0.0",
+        "eslint-config-airbnb": "16.1.0",
+        "jest": "22.4.3",
+        "react-test-renderer": "16.3.1",
+        "redux-devtools": "^3.4.1"
+    },
+    "jest": {
+        "preset": "react-native"
+    },
+    "pre-commit": [
+        "eslint"
+    ]
+}
