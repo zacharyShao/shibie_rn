@@ -1,1 +1,2 @@
-# shibie_rn
+# shibie_rni
+React Native Project
