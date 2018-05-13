@@ -1,0 +1,27 @@
+# 参考配置 http://EditorConfig.org
+
+# 顶层配置文件
+root = true
+
+[*]
+# 默认编码
+charset = utf-8
+
+# 缩进
+indent_style = space
+indent_size = 4
+
+# unix风格行尾
+end_of_line = lf
+# 文件末尾去除新行
+insert_final_newline = false
+
+# 去除行尾空格
+trim_trailing_whitespace = true
+
+{*.md,*.markdown}
+# 如果是markdown，不处理行尾空格
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
