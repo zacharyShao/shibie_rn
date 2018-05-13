@@ -1,19 +1,24 @@
 /**
  * Created by shaoxiaoze on 2018/5/13.
  */
-
-import { put, call } from 'redux-saga/effects';
-import { LOGIN_APP_FAIL,LOGIN_APP_SUCC } from '../actions/constants';
-import { loginAsync } from '../apis/index';
-
-
-export function* login() {
-    try {
-        // yield put({})
-        const data = yield call(loginAsync);
-        yield put({type: LOGIN_APP_SUCC, data});
-
-    } catch (error) {
-        yield put({type: LOGIN_APP_FAIL, error});
-    }
-}
+//
+// import {takeEvery} from 'redux-saga'
+// import {call, put} from 'redux-saga/effects'
+// // import {getUserLoginAsync} from '../apis/'
+// import * as ActionType from '../actions/constants'
+//
+//
+// export default function* watchUserLogin() {
+//     yield* takeEvery(ActionType.LOGIN, function* logger(action) {
+//         // console.log('action', action);
+//         try {
+//             // const data = yield call(getUserLoginAsync, action.phone, action.password);
+//             // console.log("watchLogin", data);
+//             yield put({type: ActionType.LOGIN_SUCC, data});
+//
+//         } catch (error) {
+//             console.log('error',error);
+//             yield put({type: ActionType.LOGIN_FAIL, error});
+//         }
+//     })
+// }

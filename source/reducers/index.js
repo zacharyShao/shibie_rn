@@ -2,17 +2,10 @@
  * Created by shaoxiaoze on 2018/5/13.
  */
 import { combineReducers } from 'redux';
-import {loginApp} from './loginReducer'
-// import { latestNews } from './latestNewsReducer';
-// import { special } from "./specialReducer";
-// import { themes } from "./themesReducer";
+import { login } from './login'
 
-export default createReducer = (injectedReducers) => {
-    return combineReducers({
-        loginApp: loginApp,
-        // special: special,
-        // themes: themes,
-        // router: router,
-        ...injectedReducers
-    })
-}
+const rootReducer = combineReducers({
+    login
+})
+
+export default rootReducer
