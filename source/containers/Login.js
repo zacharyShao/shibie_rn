@@ -2,7 +2,7 @@
  * Created by shaoxiaoze on 2018/5/10.
  */
 import React,{ Component, PropTypes } from 'react';
-import { Button } from 'react-native';
+import { Button } from 'antd-mobile';
 import { login } from  '../actions/actions'
 import {connect} from 'react-redux'
 
@@ -20,10 +20,7 @@ export default class Login extends React.Component {
     };
     render() {
         return (
-            <Button
-                title="Go to Jane's profile"
-                onPress={this._onPress}
-            />
+            <Button>Login</Button>
         );
     };
     _onPress = () =>{
