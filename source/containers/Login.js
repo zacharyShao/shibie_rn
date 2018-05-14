@@ -5,7 +5,10 @@ import React, {Component, PropTypes} from 'react';
 import {Button, Flex} from 'antd-mobile';
 import {login} from  '../actions/actions'
 import {connect} from 'react-redux'
-import {NativeModules, Platform} from 'react-native'
+import {View ,InteractionManager, NativeModules, Platform} from 'react-native'
+
+
+var Push = NativeModules.PushNative;
 
 @connect(
     (state) => {
@@ -43,22 +46,33 @@ export default class Login extends React.Component {
 
     _onClickOpenIOSCamera = (e) => {
         console.log('open iosclick');
+        InteractionManager.runAfterInteractions(() => {
+            Push.RNOpenOneVC('测试');
+        });
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.platformIOS = (Platform.OS == 'ios');
     }
+
     render() {
         return (
-            <Flex>
-                <Flex.Item>
-                    <Button onClick={this._onClickLogin}>Login</Button>
-                </Flex.Item>
-                <Flex.Item>
-                    <Button onClick={ this.platformIOS ? this._onClickOpenIOSCamera : this._onClickOpenAndroidCamera }>
-                        Open Camera</Button>
-                </Flex.Item>
-            </Flex>
+            <View style={{
+                flex: 1, justifyContent: 'center',
+                alignItems: 'center', backgroundColor: 'white'
+            }}>
+                <Flex >
+                    <Flex.Item>
+                        <Button onClick={this._onClickLogin}>Login</Button>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <Button
+                            onClick={ this.platformIOS ? this._onClickOpenIOSCamera : this._onClickOpenAndroidCamera }>
+                            Open Camera</Button>
+                    </Flex.Item>
+                </Flex>
+            </View>
+
         );
     };
 
