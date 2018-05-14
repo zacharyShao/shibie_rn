@@ -9,7 +9,7 @@ import {connect} from 'react-redux'
 @connect(
     (state) => {
         return ({
-            ...state.loginState
+            loginInfo: state.loginInfo,
         });
     },
     {login}
@@ -18,15 +18,16 @@ export default class Login extends React.Component {
     static navigationOptions = {
         title: 'Welcome',
     };
-    render() {
-        return (
-            <Button>Login</Button>
-        );
-    };
-    _onPress = () =>{
-        console.log('login onPress');
+    _onClick = (e) =>{
+        console.log('login onClick');
         this.props.login('123','456')
     }
+    render() {
+        return (
+            <Button onClick={this._onClick} >Login</Button>
+        );
+    };
+
 }
 
 

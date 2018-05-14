@@ -4,18 +4,20 @@
 import * as ActionType from '../actions/constants'
 
 const initialState = {
-    loginState: false,
-    loginText: '',
-    jumpMainPage:false
+    loginInfo : {
+        loginState: false,
+        loginText: '',
+        jumpMainPage: false
+    }
 }
 export const login = (state = initialState, action = {}) => {
     switch (action.type) {
         case ActionType.LOGIN:
-            return { ...state, ...{jumpMainPage: true} };
+            // return { ...state, ...{jumpMainPage: true} };
         case ActionType.LOGIN_FAIL:
-            return { ...state, ...{loginState: true, loginText: ''} };
+            // return { ...state, ...{loginState: true, loginText: ''} };
         case ActionType.LOGIN_SUCC:
-            return { ...state, ...{loginState: false, loginText: ''} };
+            // return { ...state, ...{loginState: false, loginText: ''} };
         default:
             return {...state}
             break;
