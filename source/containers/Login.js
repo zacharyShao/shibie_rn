@@ -5,7 +5,7 @@ import React, {Component, PropTypes} from 'react';
 import {Button, Flex} from 'antd-mobile';
 import {login} from  '../actions/actions'
 import {connect} from 'react-redux'
-import {NativeModules, DeviceEventEmitter} from 'react-native'
+import {NativeModules, Platform} from 'react-native'
 
 @connect(
     (state) => {
@@ -15,40 +15,39 @@ import {NativeModules, DeviceEventEmitter} from 'react-native'
     },
     {login}
 )
+
 export default class Login extends React.Component {
+
     static navigationOptions = {
         title: 'Welcome',
     };
+
+    platformIOS = false;
+
     _onClickLogin = (e) => {
         console.log('login onClick');
         this.props.login('123', '456')
     }
 
-
-    _onClickOpenNative = (e) => {
-        console.log('open native click');
+    _onClickOpenAndroidCamera = (e) => {
+        console.log('open android click');
         NativeModules
             .HelloIntentModule
             .startActivityFromJS("com.shibie_rn.HelloActivity", null).then(msg => {
             console.log('msg', msg)
-            // console.log("年龄:" + msg.age + "/n" + "时间:" + msg.time);
-            // ToastAndroid.show("Promise收到消息:" + "\n" + "年龄:" + msg.age + "时间:" + msg.time, ToastAndroid.SHORT)
 
-            // this.setState({
-            //     age: msg.age,
-            //     time: msg.time,
-            // })
         }).catch(error => {
             console.log(error);
         });
-
     }
 
-
-    _backToRN = (e) => {
-        console.log(' back To RN')
+    _onClickOpenIOSCamera = (e) => {
+        console.log('open iosclick');
     }
 
+    componentWillMount(){
+        this.platformIOS = (Platform.OS == 'ios');
+    }
     render() {
         return (
             <Flex>
@@ -56,7 +55,8 @@ export default class Login extends React.Component {
                     <Button onClick={this._onClickLogin}>Login</Button>
                 </Flex.Item>
                 <Flex.Item>
-                    <Button onClick={this._onClickOpenNative}>Open native</Button>
+                    <Button onClick={ this.platformIOS ? this._onClickOpenIOSCamera : this._onClickOpenAndroidCamera }>
+                        Open Camera</Button>
                 </Flex.Item>
             </Flex>
         );
