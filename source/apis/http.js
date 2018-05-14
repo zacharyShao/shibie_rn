@@ -4,7 +4,8 @@
 import axios from 'axios';
 import qs from 'querystring';
 import httpBaseConfig from './httpBaseConfig';
-axios.defaults.baseURL = httpBaseConfig.baseUrl + ':' + httpBaseConfig.port + httpBaseConfig.prefix;
+// axios.defaults.baseURL = httpBaseConfig.baseUrl + ':' + httpBaseConfig.port + httpBaseConfig.prefix;
+axios.defaults.baseURL = httpBaseConfig.baseUrl;
 export default class http {
     static async get(url, params) {
         /**
